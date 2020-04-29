@@ -8,6 +8,13 @@ HTTP module is also used to fetch resources from remote web urls.
     // res contains data from google server
     res.on('data', (chunk) => {
       // store the chunk here
-    })
+      store += chunk;
+    });
+    res.on('end', (err, data) => {
+      
+      if(err) throw err;
+
+      res.end(data);
+    });
   })
 ``` 
